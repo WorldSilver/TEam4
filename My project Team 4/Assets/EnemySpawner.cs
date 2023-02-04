@@ -22,7 +22,7 @@ public class EnemySpawner : MonoBehaviour
         if(CD <= 0)
         {
             Vector3 pos = new Vector3(borderSX.transform.position.x,Random.Range(borderSX.transform.position.y, borderDX.transform.position.y),borderSX.transform.position.z);
-            Instantiate(enemy[Random.RandomRange(0,2)],pos,Quaternion.identity);
+            //Instantiate(enemy[Random.RandomRange(0,2)],pos,Quaternion.identity);
             CD += 10f/(Time.time*0.1f);
             Debug.Log(5f / (Time.realtimeSinceStartup * 0.1f));
         }

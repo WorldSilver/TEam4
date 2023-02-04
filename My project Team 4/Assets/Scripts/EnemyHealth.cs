@@ -22,6 +22,11 @@ public class EnemyHealth : MonoBehaviour
         {
             TakeDmg(50);
         }
+       if (gameObject.CompareTag("Palla"))
+        {
+            TakeDmg(50);
+        }
+
     }
 
     public void TakeDmg(int damage)

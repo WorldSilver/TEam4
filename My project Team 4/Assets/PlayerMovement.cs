@@ -4,41 +4,83 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float speed;
-    public float jumpSpeed;
-    public float floorDistance;
-    float jumpInput;
-    public float checkRadius;
-    public Transform groundCheck;
-    public LayerMask ground;
-    BoxCollider2D boxCollider2D;
-    Rigidbody2D rb;
-    private Vector3 startPos;
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] Animator aim;
+  
+    [SerializeField] private float runSpeed = 0f, jumpPower = 0f;
+
+    [SerializeField] private float horizontalMove = 0f;
+
+    private bool isFacingRight = true;
+
+    [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private Transform controlloTerenno;
+
+ 
+    [Header("------------------Abilita di per vedere Layer-----------------------")]
+    [SerializeField] private LayerMask terrenoLayer;
+
+
+    private Vector2 flip;
+    private void Start()
     {
-        rb = gameObject.GetComponent<Rigidbody2D>();
-        startPos = transform.position;
-        boxCollider2D = gameObject.GetComponent<BoxCollider2D>();
+
+
+    }
+    void FixedUpdate()
+    {
+        // Muovere il personaggio 
+        rb.velocity = new Vector2(horizontalMove * runSpeed, rb.velocity.y);
+
+
     }
 
-    // Update is called once per frame
+
+
     void Update()
     {
 
-        Movement();
+        horizontalMove = Input.GetAxisRaw("Horizontal");
+
+        if (Input.GetButtonDown("Jump") && IsGrounded())
+        {
+            transform.Translate(0, 0, 0 * 10);
+
+            rb.velocity = new Vector2(rb.velocity.x, jumpPower);
+        }
+      
+
+
+        Flip();
     }
-    public void Movement()
+
+
+
+    //Controllo se tocca il terreno
+    private bool IsGrounded()
     {
-        if (Input.GetKey(KeyCode.A))
+
+        return Physics2D.OverlapCircle(controlloTerenno.position, 0.4f, terrenoLayer);
+    }
+
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    if (collision.CompareTag("TagTerreno") && abilitaDoppioJump)
+    //    {
+    //        doppioJump = true;
+    //    }
+    //}
+    // qui ci assicuriamo che quando il player si gira al contrario 
+    private void Flip()
+    {
+        if (isFacingRight && horizontalMove < 0f || !isFacingRight && horizontalMove > 0f)
         {
-            transform.eulerAngles = new Vector3(-15, -180, 0);
-            transform.Translate(Vector2.right * speed * Time.deltaTime);
-        }
-        else if (Input.GetKey(KeyCode.D))
-        {
-            transform.eulerAngles = new Vector3(15, 0, 0);
-            transform.Translate(Vector2.right * speed * Time.deltaTime);
+            isFacingRight = !isFacingRight;
+            flip = transform.localScale;
+            flip.x *= -1f;
+            transform.localScale = flip;
         }
     }
+
+  
+
 }
