@@ -116,7 +116,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   scoreToAdd: 10
-  coin: {fileID: 1796668098020611114, guid: 50221f5761af0c940b56b49a3bb108d5, type: 3}
+  coin: {fileID: 4042009320383127846, guid: 6dc559b8117e6ac4d97837110318402b, type: 3}
 --- !u!50 &8475255309250722084
 Rigidbody2D:
   serializedVersion: 4

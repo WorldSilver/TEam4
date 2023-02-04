@@ -117,7 +117,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   scoreToAdd: 10
-  coin: {fileID: 1796668098020611114, guid: 50221f5761af0c940b56b49a3bb108d5, type: 3}
+  coin: {fileID: 4042009320383127846, guid: 6dc559b8117e6ac4d97837110318402b, type: 3}
 --- !u!114 &8287520138554510435
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -130,7 +130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61335dddbe745b943b3f57ec55855aba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attack: {fileID: 2285333695231281051, guid: c36482956eebfc24a9355c1a69b6f306, type: 3}
+  attack: {fileID: 1796668098020611114, guid: 50221f5761af0c940b56b49a3bb108d5, type: 3}
   player: {fileID: 0}
 --- !u!61 &5148522642626016074
 BoxCollider2D:
