@@ -6,13 +6,15 @@ public class EnemyMovement : MonoBehaviour
 {
     public float speed;
     private bool movingRight = true;
-    public GameObject SxBorder;
-    public GameObject DxBorder;
+    GameObject SxBorder;
+    GameObject DxBorder;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        transform.eulerAngles = new Vector3(15, 0, 0);
+        SxBorder = GameObject.Find("SXBorder");
+        DxBorder = GameObject.Find("DXBorder");
     }
 
     // Update is called once per frame
