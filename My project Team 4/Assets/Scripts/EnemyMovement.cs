@@ -20,7 +20,7 @@ public class EnemyMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        transform.eulerAngles = new Vector3(15, 0, 0);
+        
         SxBorder = GameObject.Find("SXBorder");
         DxBorder = GameObject.Find("DXBorder");
     }
