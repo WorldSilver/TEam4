@@ -16,12 +16,13 @@ public class AttackScript : MonoBehaviour
     {
 
     }
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        if (other.CompareTag("Enemy"))
+        if (collision.CompareTag("Enemy"))
         {
-            other.GetComponent<EnemyHealth>().TakeDmg(damage);
+            collision.GetComponent<EnemyHealth>().TakeDmg(damage);
         }
     }
+
 
 }

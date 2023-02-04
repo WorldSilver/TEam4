@@ -318,7 +318,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7130622ad3158548b7be5756f409345, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 20
+  damage: 2000
 --- !u!61 &51641850
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3343,6 +3343,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: FlyEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 4651655218744313613, guid: ecf178ad17d9f934fb2cad2b3babea2f, type: 3}
+      propertyPath: speed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4651655218744313613, guid: ecf178ad17d9f934fb2cad2b3babea2f, type: 3}
+      propertyPath: horizontalMove
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4651655218744313615, guid: ecf178ad17d9f934fb2cad2b3babea2f, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -3361,11 +3369,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4651655218744313615, guid: ecf178ad17d9f934fb2cad2b3babea2f, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.99306846
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4651655218744313615, guid: ecf178ad17d9f934fb2cad2b3babea2f, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.11753737
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4651655218744313615, guid: ecf178ad17d9f934fb2cad2b3babea2f, type: 3}
       propertyPath: m_LocalRotation.y
@@ -3377,7 +3385,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4651655218744313615, guid: ecf178ad17d9f934fb2cad2b3babea2f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 13.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4651655218744313615, guid: ecf178ad17d9f934fb2cad2b3babea2f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -3420,6 +3428,10 @@ PrefabInstance:
       propertyPath: SxBorder
       value: 
       objectReference: {fileID: 1664435191}
+    - target: {fileID: 4651655218744313613, guid: 21d9708b986616b4f9724256f57a95ab, type: 3}
+      propertyPath: horizontalMove
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4651655218744313615, guid: 21d9708b986616b4f9724256f57a95ab, type: 3}
       propertyPath: m_RootOrder
       value: 2

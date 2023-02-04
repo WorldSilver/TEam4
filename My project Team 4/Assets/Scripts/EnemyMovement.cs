@@ -4,14 +4,22 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    public float speed;
-    private bool movingRight = true;
+    [SerializeField] private float speed;
     GameObject SxBorder;
     GameObject DxBorder;
+
+
+    Rigidbody2D rb;
+    [SerializeField] private float horizontalMove = 0f;
+
+    private bool isFacingRight = true;
+
+    private Vector2 flip;
 
     // Start is called before the first frame update
     void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
         transform.eulerAngles = new Vector3(15, 0, 0);
         SxBorder = GameObject.Find("SXBorder");
         DxBorder = GameObject.Find("DXBorder");
@@ -20,18 +28,34 @@ public class EnemyMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector2.right * speed * Time.deltaTime);
-        if(transform.position.x >= DxBorder.transform.position.x)
+        rb.velocity = new Vector2(horizontalMove * speed, rb.velocity.y);
+        if (transform.position.x >= DxBorder.transform.position.x & isFacingRight)
         {
-            movingRight = false;
-            transform.eulerAngles = new Vector3(-15, -180, 0);
+            isFacingRight = false;
+            Flip();
+            speed = -1;
             
+
         }
-        else if(transform.position.x <= SxBorder.transform.position.x)
+        else if(transform.position.x <= SxBorder.transform.position.x & !isFacingRight)
         {
-            transform.eulerAngles = new Vector3(15, 0, 0);
             
-            movingRight = true;
+            
+            speed = 1;
+            isFacingRight = true;
+            Flip();
+           
+        }
+    }
+    private void Flip()
+    {
+        if (isFacingRight && horizontalMove < 0f || !isFacingRight && horizontalMove > 0f)
+        {
+            
+            
+            flip = transform.localScale;
+            flip.x *= -1f;
+            transform.localScale = flip;
         }
     }
 }
